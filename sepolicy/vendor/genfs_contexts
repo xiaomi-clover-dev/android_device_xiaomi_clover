@@ -5,3 +5,4 @@ genfscon sysfs /devices/virtual/graphics/fb2                    u:object_r:sysfs
 
 # Touchscreen
 genfscon proc /touchscreen                                      u:object_r:sysfs_touchpanel:s0
+genfscon sysfs /devices/soc/c177000.i2c/i2c-3/3-005d/enable_dt2w   u:object_r:sysfs_touchpanel:s0
