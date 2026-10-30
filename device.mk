@@ -21,6 +21,13 @@ $(call inherit-product, vendor/xiaomi/clover/clover-vendor.mk)
 
 DEVICE_PATH := device/xiaomi/clover
 
+# ADB for bring-up builds
+ifneq ($(filter userdebug eng,$(TARGET_BUILD_VARIANT)),)
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.adb.secure=0 \
+    persist.sys.usb.config=adb
+endif
+
 # Setup dalvik vm configs
 $(call inherit-product, frameworks/native/build/phone-xhdpi-4096-dalvik-heap.mk)
 

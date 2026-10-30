@@ -27,6 +27,15 @@
 #
 #
 
+# Restore ADB after loading persistent properties, even on an existing /data.
+on early-boot && property:ro.debuggable=1
+    setprop persist.sys.usb.config adb
+
+# The common USB init actions create the gadget during boot.
+# Start ADB through the existing USB property triggers without waiting for Android.
+on boot && property:ro.debuggable=1
+    setprop sys.usb.config adb
+
 on boot
     start macaddress_setup
 
