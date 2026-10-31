@@ -22,6 +22,11 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    <!-- The magnetic cover reports SW_LID through the hall sensor. Closing it
+         puts the tablet to sleep; opening it wakes the tablet. Keep this policy
+         explicit for clover even when the common device overlay changes. -->
+    <bool name="config_lidControlsSleep">true</bool>
+
     <!-- Array of light sensor LUX values to define our levels for auto backlight brightness support.
          The N entries of this array define N + 1 control points as follows:
          (1-based arrays)
