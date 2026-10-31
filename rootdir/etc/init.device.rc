@@ -36,6 +36,11 @@ on early-boot && property:ro.debuggable=1
 on boot && property:ro.debuggable=1
     setprop sys.usb.config adb
 
+on init
+    # The Clover FPC HAL enables the sensor through this write-only node.
+    chown system system /sys/bus/platform/devices/soc:fpc1020/compatible_all
+    chmod 0200 /sys/bus/platform/devices/soc:fpc1020/compatible_all
+
 on boot
     start macaddress_setup
 
