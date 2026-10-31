@@ -5,7 +5,7 @@
 /data/misc/camera                               u:object_r:camera_data_file:s0
 
 # DT2W
-/proc/touchscreen/enable_dt2w                   u:object_r:sysfs_touchpanel:s0
+/proc/touchscreen/enable_dt2w                   u:object_r:proc_clover_touchscreen:s0
 
 # blkio
 /dev/blkio(/.*)?                                u:object_r:blkio_dev:s0

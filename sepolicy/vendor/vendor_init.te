@@ -1,1 +1,5 @@
 set_prop(vendor_init, vendor_freq_prop)
+
+# init.device.rc sets ownership and mode of the procfs tap-to-wake switch.
+allow vendor_init proc_clover_touchscreen:dir search;
+allow vendor_init proc_clover_touchscreen:file setattr;
