@@ -1,0 +1,29 @@
+# The kernel cap is independent of perflock and scaling_max_freq.
+# 0 = stock limits, 1 = balanced, 2 = power saving.
+on property:persist.sys.clover.power_profile=power_save
+    write /sys/module/qcom_cpufreq/parameters/clover_power_profile 2
+
+on property:persist.sys.clover.power_profile=balanced
+    write /sys/module/qcom_cpufreq/parameters/clover_power_profile 1
+
+on property:persist.sys.clover.power_profile=performance
+    write /sys/module/qcom_cpufreq/parameters/clover_power_profile 0
+
+on property:vendor.post_boot.parsed=1 && property:persist.sys.clover.power_profile=power_save
+    write /sys/module/qcom_cpufreq/parameters/clover_power_profile 2
+
+on property:vendor.post_boot.parsed=1 && property:persist.sys.clover.power_profile=balanced
+    write /sys/module/qcom_cpufreq/parameters/clover_power_profile 1
+
+on property:vendor.post_boot.parsed=1 && property:persist.sys.clover.power_profile=performance
+    write /sys/module/qcom_cpufreq/parameters/clover_power_profile 0
+
+on property:sys.boot_completed=1 && property:persist.sys.clover.power_profile=power_save
+    write /sys/module/qcom_cpufreq/parameters/clover_power_profile 2
+
+on property:sys.boot_completed=1 && property:persist.sys.clover.power_profile=balanced
+    write /sys/module/qcom_cpufreq/parameters/clover_power_profile 1
+
+on property:sys.boot_completed=1 && property:persist.sys.clover.power_profile=performance
+    write /sys/module/qcom_cpufreq/parameters/clover_power_profile 0
+

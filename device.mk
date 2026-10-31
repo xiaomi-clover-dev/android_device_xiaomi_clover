@@ -77,3 +77,9 @@ PRODUCT_PACKAGES += \
 # Wifi
 PRODUCT_PACKAGES += \
     CloverWifiOverlay
+
+# Device power profiles
+PRODUCT_PACKAGES += CloverDeviceSettings
+PRODUCT_SYSTEM_PROPERTIES += persist.sys.clover.power_profile=balanced
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/rootdir/etc/init.clover-power.rc:$(TARGET_COPY_OUT_SYSTEM)/etc/init/init.clover-power.rc

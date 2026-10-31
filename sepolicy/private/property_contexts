@@ -1,0 +1,1 @@
+persist.sys.clover.power_profile u:object_r:clover_power_profile_prop:s0 exact enum power_save balanced performance

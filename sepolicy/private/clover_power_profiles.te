@@ -1,0 +1,8 @@
+# A dedicated platform-signed app can select the profile, but cannot write sysfs.
+type clover_devicesettings_app, domain, coredomain;
+app_domain(clover_devicesettings_app)
+system_internal_prop(clover_power_profile_prop)
+set_prop(clover_devicesettings_app, clover_power_profile_prop)
+
+type sysfs_clover_power_profile, fs_type, sysfs_type;
+allow init sysfs_clover_power_profile:file rw_file_perms;
